@@ -42,6 +42,9 @@ func run(pass *analysis.Pass) (any, error) {
 		// var, const
 		case *ast.ValueSpec:
 			for _, name := range n.Names {
+				if name.Name == "ok" {
+					return
+				}
 				assert(name.Name, name.Pos(), pass)
 			}
 		// const
@@ -53,6 +56,9 @@ func run(pass *analysis.Pass) (any, error) {
 				ident, ok := name.(*ast.Ident)
 				if !ok {
 					continue
+				}
+				if ident.Name == "ok" {
+					return
 				}
 				assert(ident.Name, ident.Pos(), pass)
 			}
