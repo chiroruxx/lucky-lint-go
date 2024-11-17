@@ -1,4 +1,4 @@
-module lucky-lint-go
+module github.com/chiroruxx/lucky-lint-go
 
 go 1.23.0
 
