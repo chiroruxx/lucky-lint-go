@@ -2,7 +2,7 @@ package imprt
 
 import (
 	"fmt"
-	a "os" // want `naming 'a' is not lucky`
+	a "os" // want `naming 'a'\(stroke count 2\) is not lucky`
 	"strings"
 )
 

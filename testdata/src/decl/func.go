@@ -1,6 +1,6 @@
 package decl
 
-func c() { // want `naming 'c' is not lucky`
+func c() { // want `naming 'c'\(stroke count 1\) is not lucky`
 	return
 }
 
@@ -10,7 +10,7 @@ func llllllllllllllc() {
 
 type sssssssssssssss int
 
-func (sssssssssssssss sssssssssssssss) a() { // want `naming 'a' is not lucky`
+func (sssssssssssssss sssssssssssssss) a() { // want `naming 'a'\(stroke count 2\) is not lucky`
 	return
 }
 func (sssssssssssssss sssssssssssssss) ssssssssssssssl() {

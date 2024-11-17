@@ -100,10 +100,11 @@ func assert(name string, pos token.Pos, pass *analysis.Pass) {
 		return
 	}
 
-	lv := divine(name)
+	sc := calcStrokeCount(name)
+	lv := getLuckyLevel(sc)
 	if lv >= thresholdLevel {
 		return
 	}
 
-	pass.Reportf(pos, "naming '%s' is not lucky", name)
+	pass.Reportf(pos, "naming '%s'(stroke count %d) is not lucky", name, sc)
 }

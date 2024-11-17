@@ -116,8 +116,3 @@ func getLuckyLevel(strokeCount int) luckyLevel {
 	}
 	return level
 }
-
-func divine(name string) luckyLevel {
-	sc := calcStrokeCount(name)
-	return getLuckyLevel(sc)
-}
