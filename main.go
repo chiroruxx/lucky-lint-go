@@ -17,7 +17,7 @@ var analyzer = &analysis.Analyzer{
 	Requires: []*analysis.Analyzer{inspect.Analyzer},
 }
 
-var thresholdLevel = luckyLevelBest
+var thresholdLevel = luckyLevelGood
 
 var reservedFuncNames = map[string]bool{
 	"init": true,

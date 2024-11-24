@@ -8,4 +8,6 @@ go install github.com/chiroruxx/lucky-lint-go@latest
 ```
 
 ## Usage
-TODO
+```sh
+ go vet -vettool=$GOPATH/bin/lucky-lint-go
+```
