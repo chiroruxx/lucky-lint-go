@@ -6,7 +6,7 @@ import (
 	"golang.org/x/tools/go/analysis/analysistest"
 )
 
-func TestLint(t *testing.T) {
+func TestRun(t *testing.T) {
 	testdata := analysistest.TestData()
 	analysistest.Run(t, testdata, analyzer, "decl", "assign", "strct", "imprt", "main")
 }

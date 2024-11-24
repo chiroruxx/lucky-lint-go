@@ -29,7 +29,14 @@ func main() {
 }
 
 func run(pass *analysis.Pass) (any, error) {
-	var filter []ast.Node
+	filter := []ast.Node{
+		(*ast.ValueSpec)(nil),
+		(*ast.TypeSpec)(nil),
+		(*ast.AssignStmt)(nil),
+		(*ast.FuncDecl)(nil),
+		(*ast.Field)(nil),
+		(*ast.ImportSpec)(nil),
+	}
 	skips := make(map[ast.Node]bool)
 
 	i := pass.ResultOf[inspect.Analyzer].(*inspector.Inspector)
