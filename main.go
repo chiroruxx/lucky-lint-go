@@ -24,6 +24,11 @@ var reservedFuncNames = map[string]bool{
 	"main": true,
 }
 
+var idiomaticVariableNames = map[string]bool{
+	"ok":  true,
+	"err": true,
+}
+
 func main() {
 	singlechecker.Main(analyzer)
 }
@@ -49,12 +54,12 @@ func run(pass *analysis.Pass) (any, error) {
 		// var, const
 		case *ast.ValueSpec:
 			for _, name := range n.Names {
-				if name.Name == "ok" {
+				if idiomaticVariableNames[name.Name] {
 					return
 				}
 				assert(name.Name, name.Pos(), pass)
 			}
-		// const
+		// type
 		case *ast.TypeSpec:
 			assert(n.Name.Name, n.Name.Pos(), pass)
 		// :=
@@ -64,7 +69,7 @@ func run(pass *analysis.Pass) (any, error) {
 				if !ok {
 					continue
 				}
-				if ident.Name == "ok" {
+				if idiomaticVariableNames[ident.Name] {
 					return
 				}
 				assert(ident.Name, ident.Pos(), pass)
