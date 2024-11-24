@@ -85,7 +85,7 @@ var luckyLevelMap = map[int]luckyLevel{
 	24: luckyLevelBest,
 	31: luckyLevelBest,
 	32: luckyLevelBest,
-	52: luckyLevelBest,
+	0:  luckyLevelBest,
 	11: luckyLevelGreat,
 	16: luckyLevelGreat,
 	21: luckyLevelGreat,
@@ -109,8 +109,11 @@ var luckyLevelMap = map[int]luckyLevel{
 	51: luckyLevelGood,
 }
 
+const maxStrokeCount = 52
+
 func getLuckyLevel(strokeCount int) luckyLevel {
-	level, ok := luckyLevelMap[strokeCount]
+	c := strokeCount % maxStrokeCount
+	level, ok := luckyLevelMap[c]
 	if !ok {
 		return luckyLevelNormal
 	}
